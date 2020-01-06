@@ -1,4 +1,4 @@
-#include <stdio.h>
+
 #include <ncurses.h>
 
 #define WIDTH 30
@@ -26,15 +26,16 @@ int main()
 	initscr();
 	clear();
 	noecho();
-	cbreak();	/* Line buffering disabled. pass on everything */
+	cbreak();
 	startx = (80 - WIDTH) / 2;
 	starty = (24 - HEIGHT) / 2;
 		
 	menu_win = newwin(HEIGHT, WIDTH, starty, startx);
 	keypad(menu_win, TRUE);
-	mvprintw(0, 0, "Use arrow keys to go up and down, Press enter to select a choice");
+	mvprintw(0, 0, "Use arrow keys to go up and down, Press enter to select a choice. Choose wisely");
 	refresh();
 	print_menu(menu_win, highlight);
+
 	while(1)
 	{	c = wgetch(menu_win);
 		switch(c)
@@ -50,23 +51,15 @@ int main()
 				else 
 					++highlight;
 				break;
-			case 10:
+			case 0x0A:
 				choice = highlight;
-				break;
-			default:
-				mvprintw(24, 0, "Charcter pressed is = %3d Hopefully it can be printed as '%c'", c, c);
-				refresh();
 				break;
 		}
 		print_menu(menu_win, highlight);
 		if(choice != 0)	/* User did a choice come out of the infinite loop */
 			break;
 	}	
-	mvprintw(23, 0, "You chose choice %d with choice string %s\n", choice, choices[choice - 1]);
-	clrtoeol();
-	refresh();
-	endwin();
-	return 0;
+
 }
 
 
@@ -89,3 +82,4 @@ void print_menu(WINDOW *menu_win, int highlight)
 	}
 	wrefresh(menu_win);
 }
+
