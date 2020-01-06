@@ -32,7 +32,8 @@ int main()
 		
 	menu_win = newwin(HEIGHT, WIDTH, starty, startx);
 	keypad(menu_win, TRUE);
-	mvprintw(0, 0, "Use arrow keys to go up and down, Press enter to select a choice");
+	mvprintw(0, 0, "Use arrow keys to go up and down, Press enter to select a choice. Choose Wisely.");
+	mvprintw(10, 10, "You're walking by a sidewalk when you notice a weirdly shaped rock glowing purple.");
 	refresh();
 	print_menu(menu_win, highlight);
 	while(1)
