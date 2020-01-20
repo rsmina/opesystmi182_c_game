@@ -61,6 +61,12 @@ int main()
                                     endwin();
                                 }
 
+				else if(choice == 1) {
+                                    refresh();
+                                    mvprintw(3, 3, "You looked at it for too long and you were blinded by the stone. The end.");
+                                    endwin();
+                                }
+
 				break;
                                 
                         default:
