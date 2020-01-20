@@ -79,6 +79,11 @@ int main()
                                     endwin();
                                 }
 
+				else if(choice == 4) {
+                                    refresh();
+                                    endwin();
+                                }
+
 				break;
                                 
                         default:
