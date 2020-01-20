@@ -73,6 +73,12 @@ int main()
                                     endwin();
                                 }
 
+				else if(choice == 3) {
+                                    refresh();
+                                    mvprintw(3, 3, "You ignore the stone and keep going on with your day. You live a long and fruitful life. The end.");
+                                    endwin();
+                                }
+
 				break;
                                 
                         default:
