@@ -67,6 +67,12 @@ int main()
                                     endwin();
                                 }
 
+				else if(choice == 2) {
+                                    refresh();
+                                    mvprintw(3, 3, "Your phone reacts to the stone's radioactive energy and it explodes on your hand. The end.");
+                                    endwin();
+                                }
+
 				break;
                                 
                         default:
